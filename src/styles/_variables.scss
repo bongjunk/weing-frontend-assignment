@@ -1,0 +1,38 @@
+$color-black: #111;
+$color-white: #fff;
+$color-gray-100: #f7f7f7;
+$color-gray-200: #e5e5e5;
+$color-gray-300: #ccc;
+$color-gray-400: #999;
+$color-gray-500: #666;
+$color-primary: #0055ff;
+$color-green: #009e60;
+
+$font-main:
+  "Pretendard",
+  -apple-system,
+  BlinkMacSystemFont,
+  system-ui,
+  sans-serif;
+$spacing-unit: 8px;
+$font-size-root: 16;
+
+@function rem($pixels, $context: $font-size-root) {
+  @if unit($pixels) == "px" {
+    $pixels: strip-unit($pixels);
+  }
+  @return ($pixels / $context) * 1rem;
+}
+
+$breakpoint-web: 1440px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 360px;
+
+$container-header: 1440px;
+$container-web: 1080px;
+$container-tablet: 720px;
+$container-mobile: 296px;
+
+$gutter-web: rem(24);
+$gutter-tablet: rem(16);
+$gutter-mobile: rem(8);

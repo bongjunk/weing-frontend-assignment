@@ -1,0 +1,96 @@
+@use "@/styles/variables" as *;
+
+.headline1 {
+  font-size: rem(48);
+  line-height: rem(60);
+  font-weight: 700;
+}
+.headline2 {
+  font-size: rem(40);
+  line-height: rem(54);
+  font-weight: 700;
+}
+.headline3 {
+  font-size: rem(32);
+  line-height: rem(40);
+  font-weight: 700;
+}
+.headline4 {
+  font-size: rem(24);
+  line-height: rem(32);
+  font-weight: 700;
+}
+
+.subtitle1 {
+  font-size: rem(20);
+  line-height: rem(28);
+  font-weight: 700;
+}
+.subtitle2 {
+  font-size: rem(18);
+  line-height: rem(24);
+  font-weight: 700;
+}
+.subtitle3 {
+  font-size: rem(16);
+  line-height: rem(24);
+  font-weight: 700;
+}
+.subtitle4 {
+  font-size: rem(14);
+  line-height: rem(24);
+  font-weight: 700;
+}
+
+.body1 {
+  font-size: rem(24);
+  line-height: rem(32);
+  font-weight: 400;
+}
+.body2 {
+  font-size: rem(18);
+  line-height: rem(24);
+  font-weight: 400;
+}
+.body3 {
+  font-size: rem(16);
+  line-height: rem(20);
+  font-weight: 400;
+}
+.body4 {
+  font-size: rem(14);
+  line-height: rem(18);
+  font-weight: 400;
+}
+
+.button1 {
+  font-size: rem(16);
+  line-height: rem(20);
+  font-weight: 700;
+}
+.button2 {
+  font-size: rem(14);
+  line-height: rem(18);
+  font-weight: 500;
+}
+.button3 {
+  font-size: rem(12);
+  line-height: rem(16);
+  font-weight: 400;
+}
+
+.caption1 {
+  font-size: rem(12);
+  line-height: rem(16);
+  font-weight: 700;
+}
+.caption2 {
+  font-size: rem(12);
+  line-height: rem(16);
+  font-weight: 400;
+}
+.caption3 {
+  font-size: rem(10);
+  line-height: rem(14);
+  font-weight: 500;
+}

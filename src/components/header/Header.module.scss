@@ -1,0 +1,162 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/typography" as *;
+@use "@/styles/variables" as *;
+
+.HeaderWrapper {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.TopBar {
+  background-color: #f6f7f9;
+  padding: rem(12) 0;
+
+  .TopInner {
+    @include header-container;
+    @include flex-end;
+  }
+
+  .TopMenu {
+    display: flex;
+    color: #121416;
+    gap: rem(24);
+
+    li {
+      a {
+        @extend .button3;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+.MidBar {
+  padding: rem(21) 0;
+
+  .MidInner {
+    @include flex-between;
+    @include header-container;
+    padding-left: 0;
+  }
+
+  .Cart {
+    @include flex-center;
+    gap: rem(6);
+
+    span {
+      @extend .button2;
+      color: #154686;
+    }
+  }
+
+  // .MenuToggle {
+  //   display: none;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   gap: 4px;
+  //   width: rem(32);
+  //   height: rem(32);
+  //   background: transparent;
+  //   border: none;
+  //   cursor: pointer;
+
+  //   .bar {
+  //     width: rem(20);
+  //     height: rem(2);
+  //     background-color: #333;
+  //     border-radius: 1px;
+  //   }
+  // }
+
+  @include tablet {
+    .Cart {
+      display: none;
+    }
+
+    .MenuToggle {
+      display: flex;
+    }
+  }
+}
+
+.NavBar {
+  padding: rem(12) 0;
+
+  .NavInner {
+    @include header-container;
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .NavMenu {
+    display: flex;
+    align-items: center;
+    gap: rem(32);
+
+    li {
+      position: relative;
+      cursor: pointer;
+      @extend .body2;
+
+      &:hover {
+        color: $color-primary;
+      }
+
+      &.eco {
+        color: #00b54a;
+
+        &:hover {
+          color: #00b54a;
+        }
+      }
+
+      &.allCategory {
+        .categoryBtn {
+          @extend .button1;
+          color: #154686;
+          background: none;
+          border: none;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          .arrow {
+            margin-left: rem(4);
+          }
+        }
+      }
+
+      &.active::after {
+        content: "";
+        position: absolute;
+        @extend .subtitle2;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $color-primary;
+      }
+    }
+  }
+
+  @include mobile {
+    .NavMenu {
+      display: none;
+      flex-direction: column;
+      gap: rem(12);
+      padding: rem(16) 0;
+    }
+
+    &.open {
+      .NavMenu {
+        display: flex;
+      }
+    }
+  }
+}
