@@ -1,0 +1,234 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/typography" as *;
+@use "@/styles/variables" as *;
+
+.HeaderWrapper {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.TopBar {
+  background-color: #f6f7f9;
+  padding: rem(12) 0;
+
+  .TopInner {
+    @include header-container;
+    @include flex-end;
+  }
+
+  .TopMenu {
+    display: flex;
+    color: #121416;
+    gap: rem(24);
+
+    li {
+      display: flex;
+      align-items: center;
+      a {
+        @extend .button3;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+.MidBar {
+  padding: rem(21) 0;
+
+  .MidInner {
+    @include flex-between;
+    @include header-container;
+  }
+
+  .Logo {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .Cart {
+    @include flex-center;
+    gap: rem(4);
+
+    span {
+      @extend .button2;
+      color: #154686;
+    }
+  }
+}
+
+.NavBar {
+  padding: rem(24) 0;
+  position: relative;
+
+  .NavInner {
+    @include header-container;
+    display: flex;
+    align-items: center;
+  }
+
+  .NavMenu {
+    display: flex;
+    align-items: center;
+    gap: rem(32);
+
+    li {
+      @extend .body2;
+      position: relative;
+      cursor: pointer;
+      color: #121416;
+
+      a {
+        color: inherit;
+      }
+
+      &:hover {
+        @extend .subtitle2;
+      }
+
+      &.eco {
+        color: #00b54a;
+
+        &:hover {
+          color: #00b54a;
+        }
+      }
+
+      &.allCategory {
+        display: flex;
+        align-items: center;
+        position: static;
+
+        .CategoryBtn {
+          background: none;
+          border: none;
+          display: flex;
+          align-items: center;
+          gap: rem(6);
+          @extend .button1;
+          color: #154686;
+        }
+
+        .AllCategoryWrapper {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
+          max-width: 1440px;
+          background: #fff;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.2s ease;
+          z-index: 50;
+          padding: rem(16) rem(48) rem(24);
+
+          &.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+        }
+
+        .AllCategoryMenu {
+          width: 1440px;
+          margin: 0 auto;
+        }
+
+        .MenuInner {
+          display: flex;
+          align-items: flex-start;
+          gap: rem(42);
+        }
+
+        .MenuBlock {
+          display: flex;
+          flex-direction: column;
+          gap: rem(20);
+
+          .TitleWrapper {
+            color: #154686;
+            display: flex;
+            align-items: center;
+            gap: rem(10);
+
+            .TitleEco {
+              display: flex;
+              align-items: center;
+              gap: rem(3);
+            }
+
+            .MainTitle {
+              @extend .button1;
+            }
+
+            .Subtitle {
+              @extend .button1;
+              color: #121416;
+              margin-left: rem(2);
+            }
+
+            &.eco {
+              color: #00b54a;
+            }
+            &.zet {
+              color: #fd914b;
+              .arrowIcon {
+                filter: invert(76%) sepia(22%) saturate(5131%) hue-rotate(325deg) brightness(101%)
+                  contrast(104%);
+              }
+            }
+          }
+
+          ul {
+            display: flex;
+            flex-direction: column;
+            gap: rem(16);
+
+            li {
+              @extend .button3;
+              color: #292c2e;
+              cursor: pointer;
+
+              &:hover {
+                color: $color-primary;
+              }
+            }
+          }
+        }
+
+        .Divider {
+          width: 1px;
+          height: rem(20);
+          background-color: #e6f1f8;
+          margin-left: rem(16);
+        }
+      }
+
+      &.active {
+        @extend .subtitle2;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: #121416;
+        }
+
+        &.eco {
+          color: #00b54a;
+
+          &::after {
+            background-color: #00b54a;
+          }
+        }
+      }
+    }
+  }
+}

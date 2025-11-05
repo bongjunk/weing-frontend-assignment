@@ -1,0 +1,70 @@
+@use "@/styles/variables" as *;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@mixin header-container {
+  width: 100%;
+  max-width: $container-header;
+  margin: 0 auto;
+  padding: 0 $gutter-web;
+
+  @include mobile {
+    padding: 0 $gutter-mobile;
+  }
+}
+
+@mixin container($type: web) {
+  width: 100%;
+  margin: 0 auto;
+
+  @if $type == web {
+    max-width: $container-web;
+    padding: 0 $gutter-web;
+  } @else if $type == tablet {
+    max-width: $container-tablet;
+    padding: 0 $gutter-tablet;
+  } @else if $type == mobile {
+    max-width: $container-mobile;
+    padding: 0 $gutter-mobile;
+  } @else {
+    max-width: 100%;
+    padding: 0 rem(16);
+  }
+}
+
+// Desktop (1440px 이상)
+@mixin web {
+  @media (min-width: $breakpoint-web) {
+    @content;
+  }
+}
+
+// Tablet (768px ~ 1439px)
+@mixin tablet {
+  @media (max-width: #{$breakpoint-web - 1}) and (min-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+// Mobile (0 ~ 767px)
+@mixin mobile {
+  @media (max-width: #{$breakpoint-tablet - 1}) {
+    @content;
+  }
+}
