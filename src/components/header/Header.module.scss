@@ -23,6 +23,8 @@
     gap: rem(24);
 
     li {
+      display: flex;
+      align-items: center;
       a {
         @extend .button3;
 
@@ -40,58 +42,32 @@
   .MidInner {
     @include flex-between;
     @include header-container;
-    padding-left: 0;
+  }
+
+  .Logo {
+    display: inline-flex;
+    align-items: center;
   }
 
   .Cart {
     @include flex-center;
-    gap: rem(6);
+    gap: rem(4);
 
     span {
       @extend .button2;
       color: #154686;
     }
   }
-
-  // .MenuToggle {
-  //   display: none;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
-  //   gap: 4px;
-  //   width: rem(32);
-  //   height: rem(32);
-  //   background: transparent;
-  //   border: none;
-  //   cursor: pointer;
-
-  //   .bar {
-  //     width: rem(20);
-  //     height: rem(2);
-  //     background-color: #333;
-  //     border-radius: 1px;
-  //   }
-  // }
-
-  @include tablet {
-    .Cart {
-      display: none;
-    }
-
-    .MenuToggle {
-      display: flex;
-    }
-  }
 }
 
 .NavBar {
-  padding: rem(12) 0;
+  padding: rem(24) 0;
+  position: relative;
 
   .NavInner {
     @include header-container;
     display: flex;
     align-items: center;
-    padding-left: 0;
   }
 
   .NavMenu {
@@ -100,12 +76,17 @@
     gap: rem(32);
 
     li {
+      @extend .body2;
       position: relative;
       cursor: pointer;
-      @extend .body2;
+      color: #121416;
+
+      a {
+        color: inherit;
+      }
 
       &:hover {
-        color: $color-primary;
+        @extend .subtitle2;
       }
 
       &.eco {
@@ -117,45 +98,136 @@
       }
 
       &.allCategory {
-        .categoryBtn {
-          @extend .button1;
-          color: #154686;
+        display: flex;
+        align-items: center;
+        position: static;
+
+        .CategoryBtn {
           background: none;
           border: none;
           display: flex;
           align-items: center;
-          cursor: pointer;
+          gap: rem(6);
+          @extend .button1;
+          color: #154686;
+        }
 
-          .arrow {
-            margin-left: rem(4);
+        .AllCategoryWrapper {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100%;
+          max-width: 1440px;
+          background: #fff;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.2s ease;
+          z-index: 50;
+          padding: rem(16) rem(48) rem(24);
+
+          &.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
           }
+        }
+
+        .AllCategoryMenu {
+          width: 1440px;
+          margin: 0 auto;
+        }
+
+        .MenuInner {
+          display: flex;
+          align-items: flex-start;
+          gap: rem(42);
+        }
+
+        .MenuBlock {
+          display: flex;
+          flex-direction: column;
+          gap: rem(20);
+
+          .TitleWrapper {
+            color: #154686;
+            display: flex;
+            align-items: center;
+            gap: rem(10);
+
+            .TitleEco {
+              display: flex;
+              align-items: center;
+              gap: rem(3);
+            }
+
+            .MainTitle {
+              @extend .button1;
+            }
+
+            .Subtitle {
+              @extend .button1;
+              color: #121416;
+              margin-left: rem(2);
+            }
+
+            &.eco {
+              color: #00b54a;
+            }
+            &.zet {
+              color: #fd914b;
+              .arrowIcon {
+                filter: invert(76%) sepia(22%) saturate(5131%) hue-rotate(325deg) brightness(101%)
+                  contrast(104%);
+              }
+            }
+          }
+
+          ul {
+            display: flex;
+            flex-direction: column;
+            gap: rem(16);
+
+            li {
+              @extend .button3;
+              color: #292c2e;
+              cursor: pointer;
+
+              &:hover {
+                color: $color-primary;
+              }
+            }
+          }
+        }
+
+        .Divider {
+          width: 1px;
+          height: rem(20);
+          background-color: #e6f1f8;
+          margin-left: rem(16);
         }
       }
 
-      &.active::after {
-        content: "";
-        position: absolute;
+      &.active {
         @extend .subtitle2;
-        bottom: -4px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: $color-primary;
-      }
-    }
-  }
 
-  @include mobile {
-    .NavMenu {
-      display: none;
-      flex-direction: column;
-      gap: rem(12);
-      padding: rem(16) 0;
-    }
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: #121416;
+        }
 
-    &.open {
-      .NavMenu {
-        display: flex;
+        &.eco {
+          color: #00b54a;
+
+          &::after {
+            background-color: #00b54a;
+          }
+        }
       }
     }
   }
