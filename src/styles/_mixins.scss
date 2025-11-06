@@ -29,6 +29,17 @@
   }
 }
 
+@mixin footer-container {
+  width: 100%;
+  max-width: $container-footer;
+  margin: 0 auto;
+  padding: 0 $gutter-web;
+
+  @include mobile {
+    padding: 0 $gutter-mobile;
+  }
+}
+
 @mixin container($type: web) {
   width: 100%;
   margin: 0 auto;
