@@ -3,3 +3,8 @@ export type MenuItemTypes = {
   href: string;
   className?: string;
 };
+
+export type FooterItemTypes = {
+  label: string;
+  href: string;
+};
