@@ -1,0 +1,16 @@
+@use "@/styles/mixins" as *;
+
+.BottomBanner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1440 / 300;
+
+  @include mobile {
+    aspect-ratio: 360 / 250;
+  }
+}
+
+.Image {
+  object-fit: cover;
+  object-position: center;
+}

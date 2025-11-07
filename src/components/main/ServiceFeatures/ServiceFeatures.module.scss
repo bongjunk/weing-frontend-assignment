@@ -1,0 +1,87 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+@use "@/styles/typography" as *;
+
+.FeatureWrapper {
+  width: 100%;
+  padding: rem(48) 0;
+
+  @include mobile {
+    padding: rem(24) rem(16);
+  }
+}
+
+.FeaturesInner {
+  @include container(web);
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: rem(48);
+
+  @include mobile {
+    gap: rem(3);
+  }
+}
+
+.Card {
+  flex: 1;
+}
+
+.ContentWrapper {
+  @include flex-center;
+  gap: rem(24);
+
+  @include mobile {
+    flex-direction: column;
+    text-align: center;
+    gap: rem(12);
+  }
+}
+
+.Thumb {
+  width: rem(102);
+  height: rem(102);
+  background: #f3f3f3;
+  overflow: hidden;
+  @include flex-center;
+
+  @include mobile {
+    width: rem(104);
+    height: rem(104);
+  }
+
+  img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+}
+
+.TextWrap {
+  text-align: left;
+
+  @include mobile {
+    text-align: center;
+  }
+}
+
+.Title {
+  @extend .subtitle2;
+  color: #121416;
+  margin-bottom: rem(4);
+
+  @include mobile {
+    font-size: rem(14);
+    line-height: rem(24);
+  }
+}
+
+.Desc {
+  @extend .body4;
+  color: #505254;
+
+  @include mobile {
+    font-size: rem(12);
+    line-height: rem(16);
+  }
+}

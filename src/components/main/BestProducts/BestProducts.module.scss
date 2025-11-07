@@ -1,0 +1,71 @@
+@use "@/styles/typography" as *;
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+
+.BestWrapper {
+  width: 100%;
+  padding: rem(70) 0;
+
+  @include mobile {
+    padding: rem(40) 0;
+  }
+}
+
+.BestProductsTitle {
+  @extend .headline3;
+  text-align: center;
+  margin-bottom: rem(48);
+
+  @include mobile {
+    font-size: rem(18);
+    line-height: rem(24);
+    margin-bottom: rem(24);
+  }
+}
+
+.ProductGrid {
+  @include container(web);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: rem(24);
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(8);
+    padding: 0 rem(16);
+  }
+}
+
+.Card {
+  text-align: center;
+}
+
+.Thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: rem(8);
+  overflow: hidden;
+  background: #edeff2;
+
+  @include mobile {
+    border-radius: 0;
+  }
+}
+
+.Image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.ThumbTitle {
+  margin: rem(16) 0;
+  @extend .subtitle2;
+  color: #2a2a2a;
+
+  @include mobile {
+    font-size: rem(14);
+    margin: rem(14) 0;
+  }
+}

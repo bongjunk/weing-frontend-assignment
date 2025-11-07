@@ -1,4 +1,4 @@
-import { CategoryItem } from "@/app/_types/categoty";
+import { CategoryItem } from "../_types/category";
 
 export const allCategoryData: CategoryItem[] = [
   {

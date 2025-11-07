@@ -1,0 +1,40 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+@use "@/styles/typography" as *;
+
+.TabsWrap {
+  @include flex-center;
+  gap: rem(24);
+  padding: rem(20) 0 rem(16);
+  border-bottom: rem(1) solid #eee;
+
+  @include mobile {
+    gap: rem(16);
+    padding: rem(16) rem(8);
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.Tab {
+  @extend .body2;
+  color: #505254;
+  padding-bottom: rem(8);
+  cursor: pointer;
+  border-bottom: rem(2) solid transparent;
+  transition: all 0.2s;
+
+  &.active {
+    color: #121416;
+    font-weight: 700;
+    border-bottom-color: #121416;
+  }
+
+  @include mobile {
+    font-size: rem(14);
+  }
+}
