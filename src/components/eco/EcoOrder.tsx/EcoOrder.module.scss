@@ -1,0 +1,275 @@
+@use "@/styles/variables" as *;
+@use "@/styles/typography" as *;
+@use "@/styles/mixins" as *;
+
+.DetailSection {
+  width: 100%;
+  padding: rem(40) 0 rem(120);
+}
+
+.MobileTitle {
+  @extend .headline3;
+  display: none;
+  text-align: left;
+  padding: 0 rem(16);
+  margin-bottom: rem(16);
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.DetailInner {
+  @include container(web);
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: rem(24);
+
+  @include mobile {
+    display: block;
+    padding: 0 rem(16);
+  }
+}
+
+.DetailTitle {
+  @extend .headline3;
+  color: #121416;
+  text-align: center;
+  margin-bottom: rem(40);
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.MainImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 620 / 551;
+  border-radius: rem(8);
+  overflow: hidden;
+
+  @include mobile {
+    aspect-ratio: 312 / 297;
+  }
+}
+
+.MainImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.ThumbList {
+  display: flex;
+  gap: rem(8);
+  margin-top: rem(12);
+}
+
+.ThumbItem {
+  width: rem(146);
+  height: rem(121);
+  border-radius: rem(6);
+  overflow: hidden;
+  border: 1px solid #e3e5e8;
+  opacity: 0.5;
+}
+
+.Right {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+}
+
+.Title {
+  font-size: rem(22);
+  font-weight: 700;
+}
+
+.Desc {
+  @extend .body4;
+  color: #505254;
+}
+
+.Options {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12);
+
+  label {
+    @extend .caption2;
+  }
+}
+
+.Input,
+.Select {
+  height: rem(40);
+  padding: 0 rem(12);
+  border: 1px solid #dcdfe3;
+  border-radius: rem(6);
+}
+
+.UploadBtn {
+  width: 100%;
+  border: rem(1) solid #154686;
+  color: #154686;
+  background: #ffffff;
+  border-radius: rem(6);
+  @extend .button2;
+  text-align: center;
+  transition: 0.2s ease;
+  padding: rem(10) 0;
+
+  &:hover {
+    background: #f3f8ff;
+  }
+}
+
+.PriceBox {
+  padding: rem(16);
+  border-radius: rem(10);
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+
+  .Row {
+    @extend .body4;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .TotalRow {
+    @extend .body3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: rem(10);
+  }
+
+  .TotalPriceWrap {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+
+  .TotalPrice {
+    @extend .headline4;
+    color: #fd914b;
+  }
+
+  .TotalPriceText {
+    @extend .caption1;
+  }
+}
+
+.Buttons {
+  display: flex;
+  gap: rem(8);
+}
+
+.CartBtn {
+  @extend .button1;
+  flex: 1;
+  height: rem(48);
+  border-radius: rem(8);
+  background: #9ec6e7;
+  color: #fff;
+}
+
+.OrderBtn {
+  @extend .button1;
+  flex: 1;
+  height: rem(48);
+  border-radius: rem(8);
+  background: #154686;
+  color: #fff;
+}
+
+.ConsultBox {
+  display: flex;
+  align-items: center;
+  gap: rem(24);
+  background: #f6f8fb;
+  border-radius: rem(6);
+  padding: rem(16);
+
+  @include mobile {
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.ConsultTitle {
+  @extend .subtitle4;
+  gap: rem(4);
+  margin-bottom: rem(6);
+  display: flex;
+  align-items: center;
+}
+
+.ConsultDesc {
+  @extend .caption2;
+  color: #292c2e;
+}
+
+.ConsultBtn {
+  @include flex-center;
+  @extend .button2;
+  gap: rem(4);
+  width: rem(131);
+  padding: rem(11) 0;
+  background: #ffde55;
+  border-radius: rem(6);
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.NoticeBox {
+  background: #f7f9fc;
+  border-radius: rem(8);
+  padding: rem(16);
+  margin-top: rem(20);
+}
+
+.NoticeHeader {
+  @extend .subtitle4;
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+  margin-bottom: rem(12);
+  color: #292c2e;
+}
+
+.NoticeList {
+  @extend .caption2;
+  color: #292c2e;
+  margin-left: rem(4);
+
+  li {
+    margin-bottom: rem(8);
+    line-height: 1.5;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.MobileFixedButtons {
+  display: none;
+
+  @include mobile {
+    display: flex;
+    gap: rem(8);
+    padding: rem(12) rem(16);
+    background: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #eee;
+    z-index: 100;
+  }
+}

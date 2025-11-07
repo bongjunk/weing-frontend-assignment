@@ -1,0 +1,47 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/typography" as *;
+@use "@/styles/variables" as *;
+
+.Card {
+  text-align: center;
+}
+
+.Thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: rem(8);
+  overflow: hidden;
+  background: #edeff2;
+
+  @include mobile {
+    border-radius: 0;
+  }
+}
+
+.Image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.Title {
+  margin: rem(16) 0;
+  @extend .subtitle2;
+  color: #2a2a2a;
+
+  @include mobile {
+    font-size: rem(14);
+    margin: rem(14) 0;
+  }
+}
+
+.Subtitle {
+  @extend .body4;
+  color: #505254;
+}
+
+.Price {
+  @extend .subtitle3;
+  color: #fd914b;
+  margin: rem(16) 0;
+}
