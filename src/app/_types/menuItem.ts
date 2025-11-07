@@ -32,11 +32,13 @@ export type CategorySelectorData = {
   alt?: string;
 };
 
-export type BestProductsData = {
+export type ProductsCardData = {
   id: number;
   title: string;
   image: string;
   alt?: string;
+  subtitle?: string;
+  price?: string;
 };
 
 export type EcoBannerData = {
