@@ -1,0 +1,75 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+@use "@/styles/typography" as *;
+
+.CategoryWrap {
+  width: 100%;
+  padding: rem(40) 0 rem(20);
+
+  @include mobile {
+    padding: rem(24) 0;
+  }
+}
+
+.ScrollArea {
+  display: flex;
+  justify-content: center;
+  gap: rem(24);
+  overflow-x: auto;
+  padding: 0 rem(16);
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include mobile {
+    justify-content: flex-start;
+  }
+}
+
+.Item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(8);
+  cursor: pointer;
+
+  .Circle {
+    width: rem(64);
+    height: rem(64);
+    background: #edeff2;
+    border-radius: 50%;
+    border: rem(2) solid transparent;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+
+    @include mobile {
+      width: rem(56);
+      height: rem(56);
+    }
+  }
+
+  .CategoryIcon {
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+  }
+
+  .Label {
+    @extend .body4;
+    color: #121416;
+  }
+
+  &.active {
+    .Circle {
+      border-color: #000;
+      border-width: rem(2);
+    }
+
+    .Label {
+      font-weight: 700;
+    }
+  }
+}
